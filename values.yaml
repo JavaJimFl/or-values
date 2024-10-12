@@ -1,0 +1,24 @@
+resources:
+  requests:
+    cpu: "500m"  # CPU request
+
+overrideHPAMetrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 80
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 75
+
+hpaMetrics:
+  averageUtilization: 80
+  targetUtilization: 85
+  minUtilization: 70
+  maxUtilization: 90
+  currentUtilization: 78
